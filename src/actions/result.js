@@ -4,38 +4,38 @@ import {
   SET_ARTISTS,
   ADD_ARTISTS,
   SET_PLAYLIST,
-  ADD_PLAYLIST
-} from '../utils/constants';
-import { get } from '../utils/api';
+  ADD_PLAYLIST,
+} from "../utils/constants";
+import { get } from "../utils/api";
 
 export const setAlbums = (albums) => ({
   type: SET_ALBUMS,
-  albums
+  albums,
 });
 
 export const addAlbums = (albums) => ({
   type: ADD_ALBUMS,
-  albums
+  albums,
 });
 
 export const setArtists = (artists) => ({
   type: SET_ARTISTS,
-  artists
+  artists,
 });
 
 export const addArtists = (artists) => ({
   type: ADD_ARTISTS,
-  artists
+  artists,
 });
 
 export const setPlayList = (playlists) => ({
   type: SET_PLAYLIST,
-  playlists
+  playlists,
 });
 
 export const addPlaylist = (playlists) => ({
   type: ADD_PLAYLIST,
-  playlists
+  playlists,
 });
 
 export const initiateGetResult = (searchTerm) => {
@@ -51,7 +51,7 @@ export const initiateGetResult = (searchTerm) => {
       dispatch(setArtists(artists));
       return dispatch(setPlayList(playlists));
     } catch (error) {
-      console.log('error', error);
+      console.log("error", error);
     }
   };
 };
@@ -62,7 +62,7 @@ export const initiateLoadMoreAlbums = (url) => {
       const result = await get(url);
       return dispatch(addAlbums(result.albums));
     } catch (error) {
-      console.log('error', error);
+      console.log("error", error);
     }
   };
 };
@@ -73,7 +73,7 @@ export const initiateLoadMoreArtists = (url) => {
       const result = await get(url);
       return dispatch(addArtists(result.artists));
     } catch (error) {
-      console.log('error', error);
+      console.log("error", error);
     }
   };
 };
@@ -84,7 +84,7 @@ export const initiateLoadMorePlaylist = (url) => {
       const result = await get(url);
       return dispatch(addPlaylist(result.playlists));
     } catch (error) {
-      console.log('error', error);
+      console.log("error", error);
     }
   };
 };

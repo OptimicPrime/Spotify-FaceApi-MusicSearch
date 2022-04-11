@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import {
   initiateGetResult,
   initiateLoadMoreAlbums,
   initiateLoadMorePlaylist,
-  initiateLoadMoreArtists
-} from '../actions/result';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import SearchResult from './SearchResult';
-import SearchForm from './SearchForm';
-import Header from './Header';
-import Loader from './Loader';
-import WebCam from '../WebCam';
-
+  initiateLoadMoreArtists,
+} from "../actions/result";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import SearchResult from "./SearchResult";
+import SearchForm from "./SearchForm";
+import Header from "./Header";
+import Loader from "./Loader";
 
 const Dashboard = (props) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('albums');
+  const [selectedCategory, setSelectedCategory] = useState("albums");
   const { isValidSession, history } = props;
 
   const handleSearch = (searchTerm) => {
@@ -25,14 +23,14 @@ const Dashboard = (props) => {
       setIsLoading(true);
       props.dispatch(initiateGetResult(searchTerm)).then(() => {
         setIsLoading(false);
-        setSelectedCategory('albums');
+        setSelectedCategory("albums");
       });
     } else {
       history.push({
-        pathname: '/',
+        pathname: "/",
         state: {
-          session_expired: true
-        }
+          session_expired: true,
+        },
       });
     }
   };
@@ -42,13 +40,13 @@ const Dashboard = (props) => {
       const { dispatch, albums, artists, playlist } = props;
       setIsLoading(true);
       switch (type) {
-        case 'albums':
+        case "albums":
           await dispatch(initiateLoadMoreAlbums(albums.next));
           break;
-        case 'artists':
+        case "artists":
           await dispatch(initiateLoadMoreArtists(artists.next));
           break;
-        case 'playlist':
+        case "playlist":
           await dispatch(initiateLoadMorePlaylist(playlist.next));
           break;
         default:
@@ -56,10 +54,10 @@ const Dashboard = (props) => {
       setIsLoading(false);
     } else {
       history.push({
-        pathname: '/',
+        pathname: "/",
         state: {
-          session_expired: true
-        }
+          session_expired: true,
+        },
       });
     }
   };
@@ -72,34 +70,32 @@ const Dashboard = (props) => {
   const result = { albums, artists, playlist };
 
   return (
-    <React.Fragment>
-      {isValidSession() ? (
-        
-        <div>
-        <Header />
-        <WebCam/>
-          <SearchForm handleSearch={handleSearch} />
-          <Loader show={isLoading}>Loading...</Loader>
-          <SearchResult
-            result={result}
-            loadMore={loadMore}
-            setCategory={setCategory}
-            selectedCategory={selectedCategory}
-            isValidSession={isValidSession}
-          />
-        </div>
-      ) : (
-        <Redirect
-          to={{
-            pathname: '/',
-            state: {
-              session_expired: true
-            }
-          }}
-        />
-      )}
-    </React.Fragment>
-  );
+  <React.Fragment>
+   {isValidSession() ? (
+   <div>
+    <Header />
+      <SearchForm handleSearch={handleSearch} />
+      <Loader show={isLoading}>Loading...</Loader>
+      <SearchResult
+         result={result}
+         loadMore={loadMore}
+         setCategory={setCategory}
+         selectedCategory={selectedCategory}
+         isValidSession={isValidSession}
+         />
+   </div>
+   ) : (
+   <Redirect
+   to={{
+   pathname: '/',
+   state: {
+   session_expired: true
+   }
+   }}
+   />
+   )}
+</React.Fragment>
+);
 };
 
 const mapStateToProps = (state) => {

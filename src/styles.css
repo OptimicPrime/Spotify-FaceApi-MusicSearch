@@ -4,12 +4,17 @@
   box-sizing: border-box;
 }
 h1{
+  padding-top: 20px;
 	color: white;
+  font-size: 3.0rem;
   letter-spacing: 1px;
+  text-shadow: 2px 2px hsl(231deg 98% 76%);
 }
 h2{
 	color: white;
   letter-spacing: 1px;
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 
 body {
@@ -20,8 +25,8 @@ body {
   font-family: 'Lobster', cursive;
   font-size: 20px;
   letter-spacing: 1px;
-  background-color: black;
- 
+  background-color: #181818;
+  background: linear-gradient(to right, #181818, black);
 }
 
 button {
@@ -44,11 +49,40 @@ button {
 }
 
 button:hover {
-	box-shadow: none;
   	border-color:hsl(231deg 98% 76%)
       }
 
+button:active{
+  background-image: linear-gradient(
+    45deg,
+    hsl(308deg 100% 86%) 0%,
+    hsl(299deg 81% 84%) 11%,
+    hsl(290deg 84% 83%) 22%,
+    hsl(282deg 87% 82%) 33%,
+    hsl(273deg 90% 82%) 44%,
+    hsl(265deg 92% 81%) 56%,
+    hsl(257deg 95% 81%) 67%,
+    hsl(249deg 96% 80%) 78%,
+    hsl(240deg 98% 80%) 89%,
+    hsl(231deg 98% 76%) 100%
+        );;
+}
 
+button:focus{
+  background-image: linear-gradient(
+    45deg,
+    hsl(308deg 100% 86%) 0%,
+    hsl(299deg 81% 84%) 11%,
+    hsl(290deg 84% 83%) 22%,
+    hsl(282deg 87% 82%) 33%,
+    hsl(273deg 90% 82%) 44%,
+    hsl(265deg 92% 81%) 56%,
+    hsl(257deg 95% 81%) 67%,
+    hsl(249deg 96% 80%) 78%,
+    hsl(240deg 98% 80%) 89%,
+    hsl(231deg 98% 76%) 100%
+        );;
+}
 
 
 .login {
@@ -64,7 +98,7 @@ button:hover {
 }
 
 .form-control {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: white;
   letter-spacing: 1px;
   text-shadow: 2px 2px hsl(231deg 98% 76%);
@@ -111,10 +145,6 @@ button:hover {
   display: none;
 }
 
-.active {
-  border: 2px solid #566273;
-}
-
 .loading {
   display: flex;
   justify-content: center;
@@ -123,6 +153,7 @@ button:hover {
   margin-top: 10%;
   font-size: 150%;
 }
+
 
 .load-more {
   display: flex;
@@ -209,8 +240,9 @@ button:hover {
 }
 form label{
 	color: white;
-  font-size: 1.5rem;
-  margin-top: 30px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 10px;
   letter-spacing: 1px;
 }
 
@@ -285,7 +317,6 @@ form label{
 canvas{
   display: flex;
   position: absolute;
-  border: solid white 2px;
   border-radius: 5px;
 }
 

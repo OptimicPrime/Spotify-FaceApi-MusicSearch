@@ -1,15 +1,14 @@
-import React from 'react';
-import { Alert } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
-import Header from './Header';
-import { Redirect } from 'react-router-dom';
+import React from "react";
+import { Alert } from "react-bootstrap";
+import { connect } from "react-redux";
+import Header from "./Header";
+import { Redirect } from "react-router-dom";
 
 const Home = (props) => {
   const {
     REACT_APP_CLIENT_ID,
     REACT_APP_AUTHORIZE_URL,
-    REACT_APP_REDIRECT_URL
+    REACT_APP_REDIRECT_URL,
   } = process.env;
 
   const handleLogin = () => {
