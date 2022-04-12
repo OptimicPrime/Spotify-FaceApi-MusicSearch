@@ -10,7 +10,6 @@ const SearchForm = (props) => {
   const [captureVideo, setCaptureVideo] = React.useState(false);
   const [results, setResults] = useState('');
 
-
   const videoRef = React.useRef();
   const videoHeight = 480;
   const videoWidth = 640;
