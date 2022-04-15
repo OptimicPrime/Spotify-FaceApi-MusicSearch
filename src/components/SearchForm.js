@@ -99,7 +99,7 @@ const SearchForm = (props) => {
   return (
 <div>
 <div>
-<h2>Open the Webcam and get your Current Mood for a Spotify Search</h2>
+<h2>Open the webcam and get your current mood for a spotify search</h2>
       <div>
         {
           captureVideo && modelsLoaded ?
