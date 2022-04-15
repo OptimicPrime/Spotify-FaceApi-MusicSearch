@@ -5,12 +5,10 @@ import * as faceapi from "face-api.js";
 
 
 const SearchForm = (props) => {
-  //Update state from different component
   const [errorMsg, setErrorMsg] = useState('');
   const [modelsLoaded, setModelsLoaded] = React.useState(false);
   const [captureVideo, setCaptureVideo] = React.useState(false);
   const [results, setResults] = useState('');
-
 
   const videoRef = React.useRef();
   const videoHeight = 480;
